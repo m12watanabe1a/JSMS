@@ -8,7 +8,7 @@
 [.latexmk]()ファイルを追加したので以下のコマンドでビルドできます．
 
 ```bash
-$latexmk report.tex
+$latexmk article.tex
 ```
 
 ### VS Codeのレシピ
