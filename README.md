@@ -3,7 +3,7 @@
 日本材料学会の原稿投稿用のLatexフォーマットです．
 オリジナルは[こちら](http://www.jsms.jp/kaishi/k_form.htm)です．
 
-[プレビュー](https://github.com/m12watanabe1a/JSMS/blob/master/article.pdf)
+[プレビュー](https://github.com/m12watanabe1a/JSMS/blob/master/jsms.pdf)
 
 
 ## コンパイル
