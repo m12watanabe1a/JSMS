@@ -38,5 +38,4 @@ VS Codeで[LaTeX Workshop](https://github.com/James-Yu/LaTeX-Workshop)を使用�
     ],
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.latex.autoClean.run": "onFailed",
-    "latex-workshop.message.update.show": false,
 ```
