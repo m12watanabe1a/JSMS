@@ -1,0 +1,130 @@
+\usepackage{multicol}
+\usepackage{lmodern}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% フォントの設定
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareFontShape{JY2}{mc}{m}{it}{<->ssub*mc/m/n}{}
+\DeclareFontShape{JY2}{mc}{m}{sl}{<->ssub*mc/m/n}{}
+\DeclareFontShape{JY2}{mc}{m}{sc}{<->ssub*mc/m/n}{}
+\DeclareFontShape{JY2}{gt}{m}{it}{<->ssub*gt/m/n}{}
+\DeclareFontShape{JY2}{gt}{m}{sl}{<->ssub*gt/m/n}{}
+\DeclareFontShape{JY2}{mc}{bx}{it}{<->ssub*gt/m/n}{}
+\DeclareFontShape{JY2}{mc}{bx}{sl}{<->ssub*gt/m/n}{}
+\DeclareFontShape{JT2}{mc}{m}{it}{<->ssub*mc/m/n}{}
+\DeclareFontShape{JT2}{mc}{m}{sl}{<->ssub*mc/m/n}{}
+\DeclareFontShape{JT2}{mc}{m}{sc}{<->ssub*mc/m/n}{}
+\DeclareFontShape{JT2}{gt}{m}{it}{<->ssub*gt/m/n}{}
+\DeclareFontShape{JT2}{gt}{m}{sl}{<->ssub*gt/m/n}{}
+\DeclareFontShape{JT2}{mc}{bx}{it}{<->ssub*gt/m/n}{}
+\DeclareFontShape{JT2}{mc}{bx}{sl}{<->ssub*gt/m/n}{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% マージンの設定
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topmargin 2.6mm
+\headheight 0mm
+\headsep 0mm
+\oddsidemargin -4.4mm
+\evensidemargin -4.4mm
+%
+\textwidth 168mm
+\textheight 250mm
+\columnsep 10mm
+\parindent 1zw
+%
+\parskip 0pt
+\parsep 0pt
+%
+\kanjiskip=.05zw plus.5pt minus.5pt
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 脚注の線の設定
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\footnoterule}{%
+\kern-3\p@
+\hrule width 1.0\textwidth height 0.5pt %%% テキスト幅でラインを引く、太さ0.5pt
+\kern 2.6\p@}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ページ番号なし
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% セクションのフォントの定義
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\sectionfont}{\bf}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 文献引用時のフォーマット
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\@cite#1#2{$^{{\hbox{\scriptsize{#1\if@tempswa , #2\fi})}}}$}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 節の見出しの設定
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\section{\@startsection{section}{1}{0zw}{.2ex}{.2ex}{\centering\sectionfont}}
+\def\subsection{\@startsection{subsection}{2}{\parindent}{.2ex}{.2ex}{\sectionfont}}
+\def\subsubsection{\@startsection{subsubsection}{3}{\parindent}{.2ex}{-1em}{\sectionfont}}
+\def\paragraph{\@startsection
+ {paragraph}{4}{\parindent}{.2ex}{-1em}{\sectionfont}}
+\def\subparagraph{\@startsection
+ {subparagraph}{4}{\parindent}{.2ex}{-1em}{\sectionfont}}
+
+\def\thesection{\fontfamily{pnc}\fontsize{9pt}{0pt}\selectfont \arabic{section}}
+%
+\def\thesubsection{{\fontfamily{pnc}\fontsize{9pt}{0pt}\selectfont \arabic{section}}$\,\cdot\,${\fontfamily{pnc}\fontsize{9pt}{0pt}\selectfont \arabic{subsection}}}
+%
+\def\thesubsubsection{{\thesubsection}$\,\cdot\,${\fontfamily{pnc}\fontsize{9pt}{0pt}\selectfont \arabic{subsubsection}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 文献フォーマット
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\thebibliography#1{
+\fontfamily{pnc}\fontsize{8.5pt}{0pt}\selectfont % Century 8.5pt
+\par\vspace*{\baselineskip}\par
+\vspace*{3mm}
+\centering\noindent{\fontsize{9pt}{0pt}\selectfont \bf 参\hspace{1zw}考\hspace{1zw}文\hspace{1zw}献}
+\vspace*{-1mm}
+\baselineskip=12pt
+\list
+{\settowidth\labelwidth{#1)}%
+\makebox[\labelwidth]{\mbox{}\arabic{enumi})}}{
+\itemsep -3pt
+\itemindent 0pt
+\leftmargin 2zw
+%
+\usecounter{enumi}}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\sloppy
+\sfcode`\.=1000\relax}
+\let\endthebibliography=\endlist
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table & Figure
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\intextsep 1.0em plus 1pt minus 1pt
+\long\def\@makecaption#1#2{
+%
+\setbox\@tempboxa\hbox{\footnotesize #1 #2}
+\ifdim \wd\@tempboxa > \hsize
+%% \unhbox\@tempboxa
+\hbox to\hsize{\footnotesize \hfil #1 \begin{minipage}[t]{65mm} #2
+\end{minipage}\hfil}
+\par \else \hbox to\hsize{\hfil\box\@tempboxa\hfil}
+\fi}
+%
+\def\thefigure{\@arabic\c@figure}
+\def\fnum@figure{\fontsize{8pt}{0pt}\selectfont Fig. \thefigure\hspace*{0.5em}\mbox{ }}
+\def\thetable{\@arabic\c@table}
+\def\fnum@table{\fontsize{8pt}{0pt}\selectfont Table \thetable\hspace*{0.5em}\mbox{ }}
