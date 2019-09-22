@@ -3,9 +3,11 @@
 日本材料学会の原稿投稿用のLatexフォーマットです．
 オリジナルは[こちら](http://www.jsms.jp/kaishi/k_form.htm)です．
 
+[プレビュー](https://github.com/m12watanabe1a/JSMS/blob/master/article.pdf)
+
 
 ## コンパイル
-[.latexmk]()ファイルを追加したので以下のコマンドでビルドできます．
+[.latexmk](https://github.com/m12watanabe1a/JSMS/blob/master/.latexmkrc)ファイルを追加したので以下のコマンドでビルドできます．
 
 ```bash
 $latexmk article.tex
